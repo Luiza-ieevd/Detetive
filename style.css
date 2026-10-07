@@ -1,0 +1,1339 @@
+/* =========================================================
+   O ROUBO DO MUSEU
+   STYLE.CSS
+========================================================= */
+
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07090d;
+    color: #eeeeee;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TELAS
+========================================================= */
+
+.tela {
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+}
+
+
+.tela.ativa {
+    display: flex;
+}
+
+
+/* =========================================================
+   MENU PRINCIPAL
+========================================================= */
+
+#menu-principal {
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #20252e 0%,
+            #10131a 45%,
+            #050608 100%
+        );
+}
+
+
+.menu-principal {
+    width: min(600px, 90%);
+
+    text-align: center;
+
+    padding: 50px 30px;
+}
+
+
+.menu-titulo {
+    margin-bottom: 55px;
+}
+
+
+.texto-superior {
+    color: #a8adb7;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+
+.menu-titulo h1 {
+    font-size: clamp(42px, 7vw, 76px);
+
+    line-height: 0.95;
+
+    letter-spacing: 6px;
+
+    color: #f2f2f2;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.08),
+        0 0 35px rgba(0, 0, 0, 0.8);
+}
+
+
+.menu-subtitulo {
+    margin-top: 25px;
+
+    color: #858b96;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   BOTÕES DO MENU
+========================================================= */
+
+.menu-botoes {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.botao-menu {
+    width: 300px;
+    max-width: 100%;
+
+    padding: 16px 25px;
+
+    background: rgba(20, 23, 29, 0.9);
+
+    border: 1px solid #4a505b;
+
+    color: #eeeeee;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.botao-menu:hover {
+    background: #292e37;
+
+    border-color: #b8bdc7;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+.botao-menu:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   JANELAS
+========================================================= */
+
+.janela {
+    width: min(650px, 90%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181c23,
+            #0e1116
+        );
+
+    border: 1px solid #4b515d;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.7);
+}
+
+
+.janela.grande {
+    width: min(950px, 92%);
+}
+
+
+.janela h2 {
+    margin-bottom: 25px;
+
+    font-size: 30px;
+
+    letter-spacing: 3px;
+}
+
+
+.janela p {
+    color: #c4c8ce;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   JANELAS OVERLAY
+========================================================= */
+
+.janela-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(5px);
+}
+
+
+.janela-cabecalho {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.janela-cabecalho h2 {
+    margin: 0;
+}
+
+
+.botao-fechar {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #555b65;
+
+    background: #15181e;
+
+    color: #ffffff;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.botao-fechar:hover {
+    background: #303640;
+
+    border-color: #aaa;
+}
+
+
+/* =========================================================
+   BOTÕES GERAIS
+========================================================= */
+
+.janela-botoes {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+
+.janela button,
+.botao-acao {
+    padding: 13px 20px;
+
+    border: 1px solid #626975;
+
+    background: #20252d;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.janela button:hover,
+.botao-acao:hover {
+    background: #353b45;
+
+    border-color: #b5bbc4;
+}
+
+
+/* =========================================================
+   TELA DO JOGO
+========================================================= */
+
+#tela-jogo {
+    flex-direction: column;
+
+    background: #080a0e;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.cabecalho-jogo {
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 0 25px;
+
+    background: #11141a;
+
+    border-bottom: 1px solid #383e48;
+
+    z-index: 10;
+}
+
+
+.logo-jogo {
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+}
+
+
+.informacao-local {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #8e949e;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+}
+
+
+.informacao-local strong {
+    color: #e5e7eb;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.area-jogo {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+}
+
+
+/* =========================================================
+   CENÁRIO
+========================================================= */
+
+.scenario-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+
+    background-image: url("assets/imagens/cenarios/entrada.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+.cenario::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.45)
+        );
+
+    pointer-events: none;
+}
+
+
+.cenario-placeholder {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(500px, 80%);
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+
+.icone-cenario {
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+
+.cenario-placeholder h2 {
+    font-size: 28px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.cenario-placeholder p {
+    color: #aeb3bc;
+}
+
+
+/* =========================================================
+   OBJETOS CLICÁVEIS
+========================================================= */
+
+.objeto-clicavel {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    border: 2px solid transparent;
+
+    background: rgba(255, 255, 255, 0.01);
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.objeto-clicavel:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+
+#objeto-porta {
+    left: 15%;
+    top: 35%;
+}
+
+
+#objeto-camera {
+    right: 20%;
+    top: 20%;
+}
+
+
+#objeto-balcao {
+    left: 45%;
+    bottom: 18%;
+}
+
+
+/* =========================================================
+   PAINEL LATERAL
+========================================================= */
+
+.painel-investigacao {
+    width: 270px;
+
+    flex-shrink: 0;
+
+    padding: 25px 20px;
+
+    background: #11141a;
+
+    border-left: 1px solid #383e48;
+
+    overflow-y: auto;
+}
+
+
+.painel-titulo {
+    padding-bottom: 15px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #383e48;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+
+.status {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.status-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px;
+
+    background: #181c22;
+
+    border: 1px solid #2d333c;
+}
+
+
+.status-item span {
+    color: #858c97;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+.status-item strong {
+    color: #f0f1f3;
+
+    font-size: 18px;
+}
+
+
+.objetivo,
+.dica {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background: #171a20;
+
+    border-left: 2px solid #747b86;
+}
+
+
+.objetivo h3,
+.dica h3 {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+.objetivo p,
+.dica p {
+    color: #aeb4bd;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BARRA DE CONTROLE
+========================================================= */
+
+.barra-controle {
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    background: #0e1116;
+
+    border-top: 1px solid #383e48;
+
+    z-index: 10;
+}
+
+
+.botao-controle {
+    min-width: 110px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border: 0;
+
+    border-right: 1px solid #30353e;
+
+    background: transparent;
+
+    color: #adb2bb;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.botao-controle:first-child {
+    border-left: 1px solid #30353e;
+}
+
+
+.botao-controle span {
+    font-size: 20px;
+}
+
+
+.botao-controle small {
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+.botao-controle:hover {
+    background: #1c2027;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MAPA
+========================================================= */
+
+.mapa {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+
+.local-mapa {
+    min-height: 130px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #20252d,
+            #14171d
+        );
+
+    border: 1px solid #424853;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.local-mapa:hover {
+    transform: translateY(-3px);
+
+    background: #2a3039;
+
+    border-color: #9da3ad;
+}
+
+
+.local-mapa strong {
+    font-size: 15px;
+
+    letter-spacing: 2px;
+}
+
+
+.local-mapa span {
+    color: #9299a4;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EVIDÊNCIAS
+========================================================= */
+
+.lista-evidencias {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+
+.evidencia-card {
+    padding: 20px;
+
+    background: #171b21;
+
+    border: 1px solid #363c46;
+}
+
+
+.evidencia-card h3 {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+}
+
+
+.evidencia-card p {
+    font-size: 13px;
+
+    margin-bottom: 0;
+}
+
+
+.sem-conteudo {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #8e949d;
+}
+
+
+.sem-conteudo span {
+    display: block;
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   SUSPEITOS
+========================================================= */
+
+.lista-suspeitos {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+.cartao-suspeito {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    background: #171b21;
+
+    border: 1px solid #363c46;
+}
+
+
+.foto-suspeito {
+    width: 70px;
+    height: 70px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #292e36;
+
+    border: 1px solid #4a505a;
+
+    font-size: 30px;
+}
+
+
+.cartao-suspeito h3 {
+    margin-bottom: 7px;
+
+    font-size: 18px;
+}
+
+
+.cartao-suspeito p {
+    margin-bottom: 8px;
+
+    font-size: 12px;
+}
+
+
+.cartao-suspeito span {
+    color: #858c96;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CADERNO
+========================================================= */
+
+#anotacoes {
+    width: 100%;
+
+    min-height: 300px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    margin: 20px 0;
+
+    background: #0d1015;
+
+    border: 1px solid #414751;
+
+    color: #eeeeee;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    outline: none;
+}
+
+
+#anotacoes:focus {
+    border-color: #858c96;
+}
+
+
+/* =========================================================
+   LINHA DO TEMPO
+========================================================= */
+
+.linha-tempo {
+    position: relative;
+
+    margin-top: 30px;
+
+    padding-left: 35px;
+}
+
+
+.linha-tempo::before {
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    top: 5px;
+    bottom: 5px;
+
+    width: 2px;
+
+    background: #4b525d;
+}
+
+
+.evento {
+    position: relative;
+
+    padding: 0 0 25px 25px;
+}
+
+
+.evento::before {
+    content: "";
+
+    position: absolute;
+
+    left: -32px;
+    top: 2px;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #b6bbc3;
+
+    box-shadow:
+        0 0 0 4px #181c23;
+}
+
+
+.evento span {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+.evento p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   EVIDÊNCIA INDIVIDUAL
+========================================================= */
+
+.evidencia-imagem {
+    width: 100%;
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: #0d1015;
+
+    border: 1px solid #383e48;
+
+    font-size: 60px;
+}
+
+
+#nome-evidencia {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+
+#descricao-evidencia {
+    color: #aeb4bd;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONCLUSÃO
+========================================================= */
+
+#tela-conclusao {
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #20242c,
+            #080a0d 75%
+        );
+}
+
+
+.opcoes-culpado {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin: 30px 0;
+}
+
+
+.suspeito-final {
+    padding: 18px;
+
+    background: #171b21;
+
+    border: 1px solid #424852;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.suspeito-final:hover {
+    background: #303640;
+
+    border-color: #aeb4bd;
+}
+
+
+.resultado-final {
+    min-height: 30px;
+
+    margin: 20px 0;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   INSTRUÇÕES
+========================================================= */
+
+.instrucoes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.instrucao {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 18px;
+
+    background: #171b21;
+
+    border: 1px solid #363c46;
+}
+
+
+.instrucao strong {
+    color: #aeb4bd;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+.instrucao p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CRÉDITOS
+========================================================= */
+
+.creditos {
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+.creditos h3 {
+    margin-bottom: 20px;
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+}
+
+
+.creditos p {
+    margin-bottom: 10px;
+
+    color: #9da4ae;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #0c0f13;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #3b414b;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #59606b;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .painel-investigacao {
+        width: 220px;
+    }
+
+    .botao-controle {
+        min-width: 90px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    body {
+        overflow: auto;
+    }
+
+
+    .area-jogo {
+        flex-direction: column;
+
+        overflow-y: auto;
+    }
+
+
+    .cenario {
+        min-height: 55vh;
+    }
+
+
+    .painel-investigacao {
+        width: 100%;
+
+        border-left: 0;
+
+        border-top: 1px solid #383e48;
+    }
+
+
+    .barra-controle {
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+
+    .botao-controle {
+        min-width: 90px;
+    }
+
+
+    .mapa,
+    .lista-evidencias,
+    .lista-suspeitos,
+    .opcoes-culpado {
+        grid-template-columns: 1fr;
+    }
+
+
+    .janela {
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .cabecalho-jogo {
+        padding: 0 12px;
+    }
+
+
+    .logo-jogo {
+        font-size: 10px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .informacao-local span {
+        display: none;
+    }
+
+
+    .menu-titulo h1 {
+        font-size: 38px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .botao-menu {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O Roubo do Museu</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MENU PRINCIPAL
+    ====================================================== -->
+
+    <section id="menu-principal" class="tela ativa">
+
+        <div class="menu-principal">
+
+            <div class="menu-titulo">
+
+                <p class="texto-superior">
+                    CASO Nº 001
+                </p>
+
+                <h1>
+                    O ROUBO<br>
+                    DO MUSEU
+                </h1>
+
+                <p class="menu-subtitulo">
+                    Uma investigação começa...
+                </p>
+
+            </div>
+
+
+            <div class="menu-botoes">
+
+                <button
+                    id="btn-novo-jogo"
+                    class="botao-menu">
+                    NOVO JOGO
+                </button>
+
+                <button
+                    id="btn-continuar"
+                    class="botao-menu">
+                    CONTINUAR
+                </button>
+
+                <button
+                    id="btn-como-jogar"
+                    class="botao-menu">
+                    COMO JOGAR
+                </button>
+
+                <button
+                    id="btn-creditos"
+                    class="botao-menu">
+                    CRÉDITOS
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUÇÃO
+    ====================================================== -->
+
+    <section id="tela-introducao" class="tela">
+
+        <div class="janela">
+
+            <p class="texto-superior">
+                POLÍCIA — ARQUIVO CONFIDENCIAL
+            </p>
+
+            <h2>
+                O CASO
+            </h2>
+
+            <p>
+                Durante a noite, uma importante obra de arte
+                desapareceu do Museu.
+            </p>
+
+            <p>
+                As câmeras apresentam falhas, registros
+                parecem contradizer os depoimentos e
+                quatro pessoas estavam no prédio.
+            </p>
+
+            <p>
+                Você foi chamado para investigar o caso.
+            </p>
+
+            <p>
+                Examine os ambientes, encontre evidências,
+                analise os suspeitos e descubra o que
+                realmente aconteceu.
+            </p>
+
+            <div class="janela-botoes">
+
+                <button id="btn-iniciar-investigacao">
+                    INICIAR INVESTIGAÇÃO
+                </button>
+
+                <button id="btn-voltar-introducao">
+                    VOLTAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TELA PRINCIPAL DO JOGO
+    ====================================================== -->
+
+    <section id="tela-jogo" class="tela">
+
+        <!-- CABEÇALHO -->
+
+        <header class="cabecalho-jogo">
+
+            <div class="logo-jogo">
+                O ROUBO DO MUSEU
+            </div>
+
+            <div class="informacao-local">
+
+                <span>
+                    LOCAL:
+                </span>
+
+                <strong id="nome-local">
+                    Entrada do Museu
+                </strong>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             ÁREA DO CENÁRIO
+        ================================================== -->
+
+        <main class="area-jogo">
+
+            <div
+                id="cenario"
+                class="cenario">
+
+                <!--
+                    As imagens dos cenários serão colocadas
+                    posteriormente.
+
+                    Exemplo:
+
+                    <img
+                        src="assets/imagens/cenarios/entrada.jpg"
+                        alt="Entrada do Museu"
+                    >
+                -->
+
+
+                <div class="cenario-placeholder">
+
+                    <p class="icone-cenario">
+                        🔎
+                    </p>
+
+                    <h2>
+                        Entrada do Museu
+                    </h2>
+
+                    <p>
+                        Observe o ambiente cuidadosamente.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     OBJETOS CLICÁVEIS
+                ================================================== -->
+
+                <button
+                    class="objeto-clicavel"
+                    id="objeto-porta"
+                    data-evidencia="porta"
+                    aria-label="Examinar porta">
+                </button>
+
+                <button
+                    class="objeto-clicavel"
+                    id="objeto-camera"
+                    data-evidencia="camera"
+                    aria-label="Examinar câmera">
+                </button>
+
+                <button
+                    class="objeto-clicavel"
+                    id="objeto-balcao"
+                    data-evidencia="balcao"
+                    aria-label="Examinar balcão">
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAINEL LATERAL
+            ================================================== -->
+
+            <aside class="painel-investigacao">
+
+                <div class="painel-titulo">
+                    INVESTIGAÇÃO
+                </div>
+
+
+                <div class="status">
+
+                    <div class="status-item">
+
+                        <span>
+                            EVIDÊNCIAS
+                        </span>
+
+                        <strong id="contador-evidencias">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="status-item">
+
+                        <span>
+                            SUSPEITOS
+                        </span>
+
+                        <strong>
+                            4
+                        </strong>
+
+                    </div>
+
+
+                    <div class="status-item">
+
+                        <span>
+                            LOCAL
+                        </span>
+
+                        <strong id="status-local">
+                            1/5
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="objetivo">
+
+                    <h3>
+                        OBJETIVO
+                    </h3>
+
+                    <p>
+                        Investigue o museu e encontre pistas
+                        sobre o desaparecimento da obra.
+                    </p>
+
+                </div>
+
+
+                <div class="dica">
+
+                    <h3>
+                        DICA
+                    </h3>
+
+                    <p id="texto-dica">
+                        Clique nos objetos do cenário para
+                        examiná-los.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+
+        <!-- =================================================
+             BARRA DE CONTROLE
+        ================================================== -->
+
+        <nav class="barra-controle">
+
+            <button
+                id="btn-mapa"
+                class="botao-controle">
+
+                <span>🗺️</span>
+                <small>MAPA</small>
+
+            </button>
+
+
+            <button
+                id="btn-caderno"
+                class="botao-controle">
+
+                <span>📓</span>
+                <small>CADERNO</small>
+
+            </button>
+
+
+            <button
+                id="btn-evidencias"
+                class="botao-controle">
+
+                <span>🔎</span>
+                <small>EVIDÊNCIAS</small>
+
+            </button>
+
+
+            <button
+                id="btn-suspeitos"
+                class="botao-controle">
+
+                <span>👤</span>
+                <small>SUSPEITOS</small>
+
+            </button>
+
+
+            <button
+                id="btn-linha-do-tempo"
+                class="botao-controle">
+
+                <span>🕐</span>
+                <small>LINHA DO TEMPO</small>
+
+            </button>
+
+
+            <button
+                id="btn-menu"
+                class="botao-controle">
+
+                <span>☰</span>
+                <small>MENU</small>
+
+            </button>
+
+        </nav>
+
+    </section>
+
+
+    <!-- =====================================================
+         JANELA DO MAPA
+    ====================================================== -->
+
+    <section
+        id="tela-mapa"
+        class="tela janela-overlay">
+
+        <div class="janela grande">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    MAPA DO MUSEU
+                </h2>
+
+                <button
+                    id="fechar-mapa"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <p>
+                Escolha um local para investigar.
+            </p>
+
+
+            <div class="mapa">
+
+                <button
+                    class="local-mapa"
+                    data-local="entrada">
+
+                    <strong>
+                        ENTRADA
+                    </strong>
+
+                    <span>
+                        Recepção
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="local-mapa"
+                    data-local="galeria">
+
+                    <strong>
+                        GALERIA
+                    </strong>
+
+                    <span>
+                        Sala da obra
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="local-mapa"
+                    data-local="seguranca">
+
+                    <strong>
+                        SEGURANÇA
+                    </strong>
+
+                    <span>
+                        Câmeras e registros
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="local-mapa"
+                    data-local="restauracao">
+
+                    <strong>
+                        RESTAURAÇÃO
+                    </strong>
+
+                    <span>
+                        Sala de restauração
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="local-mapa"
+                    data-local="diretoria">
+
+                    <strong>
+                        DIRETORIA
+                    </strong>
+
+                    <span>
+                        Escritório da diretora
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         JANELA DE EVIDÊNCIAS
+    ====================================================== -->
+
+    <section
+        id="tela-evidencias"
+        class="tela janela-overlay">
+
+        <div class="janela grande">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    EVIDÊNCIAS
+                </h2>
+
+                <button
+                    id="fechar-evidencias"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                id="lista-evidencias"
+                class="lista-evidencias">
+
+                <div class="sem-conteudo">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <p>
+                        Nenhuma evidência encontrada.
+                    </p>
+
+                    <small>
+                        Explore os ambientes para encontrar
+                        novas pistas.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         JANELA DE SUSPEITOS
+    ====================================================== -->
+
+    <section
+        id="tela-suspeitos"
+        class="tela janela-overlay">
+
+        <div class="janela grande">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    SUSPEITOS
+                </h2>
+
+                <button
+                    id="fechar-suspeitos"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="lista-suspeitos">
+
+
+                <!-- HELENA -->
+
+                <article class="cartao-suspeito">
+
+                    <div class="foto-suspeito">
+                        👩
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Helena
+                        </h3>
+
+                        <p>
+                            Diretora do museu.
+                        </p>
+
+                        <span>
+                            SUSPEITA: A INVESTIGAR
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RAFAEL -->
+
+                <article class="cartao-suspeito">
+
+                    <div class="foto-suspeito">
+                        👨
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Rafael
+                        </h3>
+
+                        <p>
+                            Responsável pela segurança.
+                        </p>
+
+                        <span>
+                            SUSPEITA: A INVESTIGAR
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CLARA -->
+
+                <article class="cartao-suspeito">
+
+                    <div class="foto-suspeito">
+                        👩‍🔬
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Clara
+                        </h3>
+
+                        <p>
+                            Restauradora do museu.
+                        </p>
+
+                        <span>
+                            SUSPEITA: A INVESTIGAR
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MARCOS -->
+
+                <article class="cartao-suspeito">
+
+                    <div class="foto-suspeito">
+                        📷
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Marcos
+                        </h3>
+
+                        <p>
+                            Fotógrafo.
+                        </p>
+
+                        <span>
+                            SUSPEITA: A INVESTIGAR
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CADERNO DO DETETIVE
+    ====================================================== -->
+
+    <section
+        id="tela-caderno"
+        class="tela janela-overlay">
+
+        <div class="janela grande">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    CADERNO DO DETETIVE
+                </h2>
+
+                <button
+                    id="fechar-caderno"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <p>
+                Faça suas anotações durante a investigação.
+            </p>
+
+
+            <textarea
+                id="anotacoes"
+                placeholder="Escreva aqui suas observações..."
+            ></textarea>
+
+
+            <button
+                id="salvar-anotacoes"
+                class="botao-acao">
+
+                SALVAR ANOTAÇÕES
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LINHA DO TEMPO
+    ====================================================== -->
+
+    <section
+        id="tela-linha-do-tempo"
+        class="tela janela-overlay">
+
+        <div class="janela grande">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    LINHA DO TEMPO
+                </h2>
+
+                <button
+                    id="fechar-linha-do-tempo"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="linha-tempo">
+
+
+                <div class="evento">
+
+                    <span>
+                        21:40
+                    </span>
+
+                    <p>
+                        Marcos registra uma fotografia da
+                        obra ainda exposta na galeria.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        21:47
+                    </span>
+
+                    <p>
+                        Rafael aparece próximo à sala
+                        da pintura.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        21:52
+                    </span>
+
+                    <p>
+                        O cartão de Clara é utilizado
+                        na sala de restauração.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        21:53
+                    </span>
+
+                    <p>
+                        O computador de segurança é acessado.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        21:55
+                    </span>
+
+                    <p>
+                        A câmera principal fica offline.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        21:56
+                    </span>
+
+                    <p>
+                        A porta da sala da pintura é aberta.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        21:59
+                    </span>
+
+                    <p>
+                        A porta da sala da pintura é fechada.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <span>
+                        22:00
+                    </span>
+
+                    <p>
+                        O desaparecimento da obra é descoberto.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         JANELA DE INVESTIGAÇÃO DA EVIDÊNCIA
+    ====================================================== -->
+
+    <section
+        id="tela-evidencia"
+        class="tela janela-overlay">
+
+        <div class="janela">
+
+            <div class="janela-cabecalho">
+
+                <h2 id="titulo-evidencia">
+                    EVIDÊNCIA
+                </h2>
+
+                <button
+                    id="fechar-evidencia"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div id="conteudo-evidencia">
+
+                <div class="evidencia-imagem">
+
+                    🔎
+
+                </div>
+
+                <h3 id="nome-evidencia">
+                    Evidência encontrada
+                </h3>
+
+                <p id="descricao-evidencia">
+                    Analise cuidadosamente esta pista.
+                </p>
+
+            </div>
+
+
+            <button
+                id="guardar-evidencia"
+                class="botao-acao">
+
+                GUARDAR EVIDÊNCIA
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TELA DE CONCLUSÃO
+    ====================================================== -->
+
+    <section
+        id="tela-conclusao"
+        class="tela">
+
+        <div class="janela grande">
+
+            <p class="texto-superior">
+                ARQUIVO DO CASO
+            </p>
+
+            <h2>
+                CONCLUSÃO DA INVESTIGAÇÃO
+            </h2>
+
+            <p>
+                Você encontrou todas as pistas necessárias?
+            </p>
+
+
+            <div class="opcoes-culpado">
+
+                <button
+                    class="suspeito-final"
+                    data-culpado="helena">
+                    HELENA
+                </button>
+
+                <button
+                    class="suspeito-final"
+                    data-culpado="rafael">
+                    RAFAEL
+                </button>
+
+                <button
+                    class="suspeito-final"
+                    data-culpado="clara">
+                    CLARA
+                </button>
+
+                <button
+                    class="suspeito-final"
+                    data-culpado="marcos">
+                    MARCOS
+                </button>
+
+            </div>
+
+
+            <div
+                id="resultado-final"
+                class="resultado-final">
+            </div>
+
+
+            <button
+                id="btn-voltar-menu-final"
+                class="botao-acao">
+
+                VOLTAR AO MENU
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TELA COMO JOGAR
+    ====================================================== -->
+
+    <section
+        id="tela-como-jogar"
+        class="tela janela-overlay">
+
+        <div class="janela">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    COMO JOGAR
+                </h2>
+
+                <button
+                    id="fechar-como-jogar"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="instrucoes">
+
+                <div class="instrucao">
+
+                    <strong>
+                        01
+                    </strong>
+
+                    <p>
+                        Explore os diferentes ambientes
+                        do museu.
+                    </p>
+
+                </div>
+
+
+                <div class="instrucao">
+
+                    <strong>
+                        02
+                    </strong>
+
+                    <p>
+                        Clique nos objetos para descobrir
+                        evidências.
+                    </p>
+
+                </div>
+
+
+                <div class="instrucao">
+
+                    <strong>
+                        03
+                    </strong>
+
+                    <p>
+                        Analise os quatro suspeitos.
+                    </p>
+
+                </div>
+
+
+                <div class="instrucao">
+
+                    <strong>
+                        04
+                    </strong>
+
+                    <p>
+                        Use a linha do tempo para relacionar
+                        os acontecimentos.
+                    </p>
+
+                </div>
+
+
+                <div class="instrucao">
+
+                    <strong>
+                        05
+                    </strong>
+
+                    <p>
+                        No final, escolha quem você acredita
+                        ser o responsável pelo roubo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TELA DE CRÉDITOS
+    ====================================================== -->
+
+    <section
+        id="tela-creditos"
+        class="tela janela-overlay">
+
+        <div class="janela">
+
+            <div class="janela-cabecalho">
+
+                <h2>
+                    CRÉDITOS
+                </h2>
+
+                <button
+                    id="fechar-creditos"
+                    class="botao-fechar">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="creditos">
+
+                <h3>
+                    O ROUBO DO MUSEU
+                </h3>
+
+                <p>
+                    Projeto Final — FIC Programação
+                </p>
+
+                <p>
+                    Jogo de investigação digital
+                </p>
+
+                <p>
+                    HTML • CSS • JavaScript
+                </p>
+
+                <p>
+                    Desenvolvido pela equipe do projeto.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
