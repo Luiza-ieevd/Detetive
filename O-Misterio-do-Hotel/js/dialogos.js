@@ -144,54 +144,48 @@ export const dialogos = {
 
   'corredor-servico': [
     {
-      id: 'donna',
-      rotulo: 'Conversar com Donna',
+      id: 'danni-donna',
+      rotulo: 'Conversar com Danni e Donna',
       falas: [
         {
           personagem: 'Donna',
-          texto: 'Oh! Desculpe, pensei que fosse alguém da equipe. Este corredor não costuma receber hóspedes. Está procurando alguma coisa ou se perdeu tentando encontrar outro ambiente?'
+          texto: 'Oh! Danni, você pode me ajudar com essas caixas? Não quero deixá-las no meio da passagem. Ah, boa noite, senhor. Pensei que fosse alguém da equipe. Este corredor não costuma receber hóspedes. Está procurando alguma coisa?'
         },
         {
           personagem: 'Investigador',
-          texto: 'Nenhuma das duas coisas. Sou o investigador que chegou hoje. Estou conhecendo as dependências do hotel, inclusive as áreas de serviço.'
+          texto: 'Boa noite. Sou o investigador que chegou hoje ao hotel. Estou conhecendo as dependências e as pessoas que trabalham aqui.'
+        },
+        {
+          personagem: 'Danni',
+          texto: 'Então veio conhecer justamente a parte que quase ninguém vê. Eu sou Danni. A gente passa boa parte do tempo por aqui, resolvendo uma tarefa atrás da outra, principalmente quando o hotel recebe algum evento.'
         },
         {
           personagem: 'Donna',
-          texto: 'Entendo. Meu nome é Donna, trabalho na equipe de limpeza e cuido para que os quartos e os espaços comuns estejam em ordem. Não é a parte mais visível do hotel, mas garanto que dá bastante trabalho manter tudo funcionando, especialmente em noites movimentadas.'
+          texto: 'Meu nome é Donna. Trabalho na equipe de limpeza e cuido para que os quartos e os espaços comuns estejam em ordem. O trabalho não aparece muito para os hóspedes, mas é o que permite que tudo esteja pronto quando eles precisam.'
         },
         {
           personagem: 'Investigador',
-          texto: 'Imagino. É um hotel grande, e cada ambiente parece depender de muitas pessoas.'
+          texto: 'Imagino que vocês precisem trabalhar bastante em conjunto para manter tudo funcionando.'
+        },
+        {
+          personagem: 'Danni',
+          texto: 'Precisamos, sim. Quando parece que terminei uma coisa, alguém aparece precisando de ajuda em outra. Hoje está ainda mais corrido por causa da apresentação.'
         },
         {
           personagem: 'Donna',
-          texto: 'É exatamente isso. Às vezes, os hóspedes pensam que tudo simplesmente aparece limpo e organizado pela manhã. Mas há uma equipe inteira trabalhando enquanto eles descansam. Se precisar passar por aqui, não há problema; só peço que tenha cuidado com os materiais e não bloqueie a passagem.'
-        }
-      ]
-    },
-    {
-      id: 'danni',
-      rotulo: 'Conversar com Danni',
-      falas: [
-        {
-          personagem: 'Danni',
-          texto: 'Você é o novo hóspede, não é? Vi a Jaqueline falando com alguém na recepção, mas não sabia que viria conhecer até o corredor de serviço. Normalmente, as pessoas ficam só nos lugares mais bonitos do hotel.'
+          texto: 'E é por isso que tento manter cada coisa no seu lugar. Um corredor desorganizado atrapalha todo mundo. Não é um trabalho complicado de explicar, mas exige atenção e bastante paciência.'
         },
         {
           personagem: 'Investigador',
-          texto: 'Gosto de conhecer o lugar por inteiro. E você, trabalha aqui há muito tempo?'
+          texto: 'Obrigado por me receberem. Não quero atrapalhar o serviço de vocês.'
         },
         {
           personagem: 'Danni',
-          texto: 'Meu nome é Danni. Trabalho ajudando a equipe com as tarefas do hotel, principalmente quando há eventos. Hoje está tudo um pouco mais corrido por causa da apresentação. Quando parece que finalmente terminei uma coisa, alguém aparece precisando de ajuda em outra.'
+          texto: 'Não atrapalha, não. Só não conte para a Donna que eu estava conversando quando ainda tenho tarefas para terminar.'
         },
         {
-          personagem: 'Investigador',
-          texto: 'Deve ser difícil manter uma rotina quando as prioridades mudam o tempo todo.'
-        },
-        {
-          personagem: 'Danni',
-          texto: 'É, mas a gente acaba se acostumando. O pessoal daqui tem seu jeito e, quando todos colaboram, as coisas funcionam. Só não conte para a Donna que eu disse isso enquanto estava parada conversando; ela vai lembrar que ainda tenho algumas tarefas para terminar.'
+          personagem: 'Donna',
+          texto: 'Eu ouvi isso, Danni. E pode ficar tranquilo, senhor, estamos acostumadas com a correria. Seja bem-vindo ao Belladonna.'
         }
       ]
     }
