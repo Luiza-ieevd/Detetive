@@ -1,223 +1,286 @@
-// Diálogos iniciais de O Mistério do Hotel.
-// As conversas apresentam os personagens e o clima do Hotel Belladonna
-// sem revelar culpados, segredos centrais ou reviravoltas ainda não aprovadas.
+// Conversas opcionais da primeira noite no Hotel Belladonna.
+// O jogador escolhe com quem conversar. As falas apresentam o elenco,
+// sem antecipar pistas, culpados ou reviravoltas da investigação.
 
 export const dialogos = {
   recepcao: [
     {
-      personagem: 'Jaqueline',
-      texto: 'Boa noite. Seja bem-vindo ao Belladonna. Peço desculpas pela demora; com essa chuva, metade da cidade parece ter decidido chegar ao mesmo tempo. Se precisar de alguma coisa, estarei por aqui.'
-    },
-    {
-      personagem: 'Margaret',
-      texto: 'Obrigada, querida. Não se preocupe, já enfrentei noites bem mais caóticas do que esta. Só espero que a tempestade não atrapalhe a apresentação. O Camilo passou a semana inteira ensaiando.'
-    },
-    {
-      personagem: 'Jaqueline',
-      texto: 'O salão está preparado e a equipe recebeu todas as orientações. Imagino que seja difícil subir ao palco quando há tanta coisa dependendo de uma única apresentação, mas tenho certeza de que tudo vai correr bem.'
-    },
-    {
-      personagem: 'Margaret',
-      texto: 'Você é gentil por dizer isso. A verdade é que, depois de tantos anos cantando, ainda sinto aquele frio na barriga antes de entrar no palco. Acho que, se um dia ele desaparecer, será porque deixei de me importar.'
-    },
-    {
-      personagem: 'Jaqueline',
-      texto: 'Então espero que ele nunca desapareça. O hotel anda precisando de um pouco de música, especialmente em noites como esta.'
-    }
-  ],
-
-  elevador: [
-    {
-      personagem: 'Matteo',
-      texto: 'Por favor, cuidado com a porta. Este elevador já viu dias melhores e, quando a umidade aumenta, resolve fazer barulho como se estivesse prestes a desabar. Não é elegante, eu sei, mas ainda funciona.'
-    },
-    {
-      personagem: 'Danni',
-      texto: 'O senhor diz isso toda vez que alguém entra nele. Um dia alguém vai acreditar que o elevador está realmente quebrando e vai subir todas as escadas com as malas.'
-    },
-    {
-      personagem: 'Matteo',
-      texto: 'Se isso acontecer, talvez finalmente aprendam a não trazer a casa inteira para uma estadia de dois dias. Mas, falando sério, vou pedir que verifiquem o mecanismo amanhã. Hoje precisamos manter tudo funcionando.'
-    },
-    {
-      personagem: 'Danni',
-      texto: 'Amanhã, então. Porque hoje parece que todo mundo resolveu precisar de alguma coisa ao mesmo tempo. Eu mal consegui terminar uma tarefa sem alguém me chamar de outro lado do hotel.'
-    },
-    {
-      personagem: 'Matteo',
-      texto: 'É uma noite movimentada. Faça o que estiver ao seu alcance e não tente resolver tudo sozinha. Um hotel só funciona quando cada pessoa faz a sua parte.'
+      id: 'jaqueline',
+      rotulo: 'Conversar com Jaqueline',
+      falas: [
+        {
+          personagem: 'Jaqueline',
+          texto: 'Boa noite. O senhor deve ser o investigador esperado. Peço desculpas por não ter ido recebê-lo na entrada; a chuva trouxe alguns problemas e a recepção ficou bastante movimentada. De todo modo, seja bem-vindo ao Hotel Belladonna.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Não se preocupe. A viagem foi longa, mas cheguei sem grandes dificuldades. Imagino que já tenham avisado sobre minha hospedagem. Antes de me recolher, gostaria de conhecer um pouco o hotel e saber com quem estou lidando.'
+        },
+        {
+          personagem: 'Jaqueline',
+          texto: 'Naturalmente. Meu nome é Jaqueline, sou responsável pela recepção. Se precisar de informações sobre os hóspedes, horários ou serviços, pode falar comigo. Só não prometo ter todas as respostas de imediato; há muita coisa acontecendo esta noite.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Não espero que tenha. Por enquanto, quero apenas conhecer o lugar e as pessoas. É mais fácil entender um ambiente quando não se começa fazendo perguntas como se todos estivessem sob suspeita.'
+        },
+        {
+          personagem: 'Jaqueline',
+          texto: 'Nesse caso, sugiro começar pelo salão. A equipe ainda está preparando a apresentação de Margaret e Camilo. Também pode conhecer o bar, os espaços de serviço e o jardim. Quando terminar, volte aqui; verificarei o acesso ao seu quarto.'
+        }
+      ]
     }
   ],
 
   salao: [
     {
-      personagem: 'Camilo',
-      texto: 'Você está olhando para o piano como se ele tivesse cometido algum crime, Margaret. Prometo que não fui eu quem desafinou. Acho que a umidade desta noite está fazendo os instrumentos sofrerem mais do que os hóspedes.'
+      id: 'margaret',
+      rotulo: 'Conversar com Margaret',
+      falas: [
+        {
+          personagem: 'Margaret',
+          texto: 'Boa noite. Não me lembro de tê-lo visto por aqui antes. É um dos hóspedes que chegaram hoje? Espero que a movimentação do salão não esteja atrapalhando sua estadia. Estamos nos preparando para a apresentação e, como pode imaginar, há sempre alguma coisa para resolver antes de subir ao palco.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Cheguei há pouco. Sou investigador e ficarei hospedado no hotel. Não precisa interromper seus preparativos por minha causa; só estou aproveitando a oportunidade para conhecer as pessoas.'
+        },
+        {
+          personagem: 'Margaret',
+          texto: 'Então é um prazer conhecê-lo. Meu nome é Margaret. Trabalho como cantora e esta noite vou me apresentar aqui. Já cantei em lugares muito diferentes, mas ainda gosto da expectativa que antecede uma apresentação. O salão fica cheio de conversas e, por alguns instantes, todos parecem esperar pela mesma coisa.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Imagino que seja uma sensação particular. E aquele homem junto aos instrumentos? Parece estar cuidando de tudo por aqui.'
+        },
+        {
+          personagem: 'Margaret',
+          texto: 'É Camilo, meu companheiro e parceiro musical. Ele toca trompete e tem um ouvido muito mais exigente do que o meu, embora jamais admita quando está preocupado. Trabalhamos juntos há bastante tempo. Se ouvir alguém reclamando de uma nota fora do lugar, provavelmente será ele.'
+        }
+      ]
     },
     {
-      personagem: 'Margaret',
-      texto: 'Eu não estava olhando para o piano, estava pensando na música. E você sabe muito bem que, quando começa a procurar desculpas antes mesmo de tocar, é porque está nervoso.'
-    },
-    {
-      personagem: 'Camilo',
-      texto: 'Nervoso? Eu? Depois de tantos anos tocando ao seu lado? Isso é uma acusação bastante séria. Só estou tentando garantir que nada saia errado hoje.'
-    },
-    {
-      personagem: 'Margaret',
-      texto: 'Nem tudo precisa sair perfeito. Às vezes, o público se lembra mais de uma noite em que alguma coisa inesperada aconteceu do que de uma apresentação impecável. Desde que você não resolva improvisar uma música de vinte minutos, estaremos bem.'
-    },
-    {
-      personagem: 'Camilo',
-      texto: 'Não posso prometer nada. Mas prometo prestar atenção em você. Como sempre fizemos: você conduz a música, eu acompanho, e o resto do mundo pode esperar alguns minutos.'
-    },
-    {
-      personagem: 'Margaret',
-      texto: 'É exatamente por isso que gosto de trabalhar com você. Agora pare de conversar e afine esse trompete. Temos uma plateia esperando, e eu não pretendo deixá-los esperando a noite inteira.'
+      id: 'camilo',
+      rotulo: 'Conversar com Camilo',
+      falas: [
+        {
+          personagem: 'Camilo',
+          texto: 'Se veio reclamar do som, ainda não começamos. Estou apenas conferindo os instrumentos antes da apresentação. Prefiro descobrir qualquer problema agora, quando ainda há tempo de resolvê-lo, em vez de perceber alguma coisa errada diante de todo o salão.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Não vim reclamar. Sou o investigador que chegou há pouco e estou conhecendo o hotel. Você é Camilo, certo?'
+        },
+        {
+          personagem: 'Camilo',
+          texto: 'O próprio. Toco trompete e acompanho Margaret nas apresentações. Ela costuma dizer que sou detalhista demais, mas alguém precisa prestar atenção nos detalhes. Uma música pode parecer perfeita para quem está ouvindo e, ainda assim, ter alguma coisa fora do lugar.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Parece que você leva o trabalho bastante a sério. Está há muito tempo no Belladonna?'
+        },
+        {
+          personagem: 'Camilo',
+          texto: 'Estamos hospedados aqui por causa da apresentação. Margaret e eu trabalhamos juntos há anos, então já nos acostumamos a viajar e dividir os preparativos. O hotel tem sido atencioso conosco até agora. Espero que a noite continue tranquila para todos.'
+        }
+      ]
     }
   ],
 
   bar: [
     {
-      personagem: 'Sullivan',
-      texto: 'Se está procurando alguma coisa especial, é melhor me dizer antes que a casa fique cheia. Quando a apresentação começar, vou ter mais pedidos do que mãos para preparar tudo.'
+      id: 'sullivan',
+      rotulo: 'Conversar com Sullivan',
+      falas: [
+        {
+          personagem: 'Sullivan',
+          texto: 'Boa noite, senhor. Se pretende pedir alguma coisa, posso atendê-lo, mas aviso que o bar deve ficar bastante cheio quando a apresentação começar. Meu nome é Sullivan; cuido daqui e tento manter a ordem mesmo quando todos resolvem pedir ao mesmo tempo.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Não vim fazer um pedido. Sou o investigador que chegou hoje. Estou conhecendo os funcionários e os ambientes antes de me recolher.'
+        },
+        {
+          personagem: 'Sullivan',
+          texto: 'Ah, sim. Ouvi dizer que teríamos um hóspede novo. Bem, não há muito mistério no meu trabalho: sirvo as bebidas, organizo o balcão e tento impedir que os clientes transformem uma noite agradável em uma confusão. Às vezes, essa última parte dá mais trabalho do que as outras.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Imagino que um bar seja um bom lugar para ouvir conversas. As pessoas costumam falar mais quando estão à vontade.'
+        },
+        {
+          personagem: 'Sullivan',
+          texto: 'Isso acontece, mas não significa que eu fique prestando atenção em tudo. Estou trabalhando, senhor. Ainda assim, depois de algum tempo, a gente acaba reconhecendo os hábitos dos clientes. É difícil não notar quem aparece toda noite e quem só dá as caras quando alguma coisa importante está acontecendo.'
+        }
+      ]
     },
     {
-      personagem: 'Thomas',
-      texto: 'Você fala como se fosse a primeira noite movimentada do ano. Já vi você atender uma mesa inteira sozinho e ainda reclamar que estava entediado.'
-    },
-    {
-      personagem: 'Sullivan',
-      texto: 'Reclamar faz parte do serviço. Se eu ficar quieto, os hóspedes vão pensar que aconteceu alguma coisa. Além disso, alguém precisa lembrar você de levar os pedidos certos para as mesas.'
-    },
-    {
-      personagem: 'Thomas',
-      texto: 'Eu nunca entreguei um pedido errado de propósito. E, se aconteceu alguma vez, foi porque alguém escreveu de um jeito impossível de entender. Não vou assumir a culpa por uma caligrafia criminosa.'
-    },
-    {
-      personagem: 'Sullivan',
-      texto: 'Está bem, está bem. Guarde essa defesa para quando realmente precisar dela. Por enquanto, pegue aqueles copos e tente não transformar uma noite elegante em uma corrida de obstáculos.'
+      id: 'thomas',
+      rotulo: 'Conversar com Thomas',
+      falas: [
+        {
+          personagem: 'Thomas',
+          texto: 'Com licença, preciso passar com esta bandeja. Ah, desculpe, não percebi que queria falar comigo. Se não for demorar muito, posso ouvi-lo antes de levar isto ao salão.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'É rápido. Sou o investigador hospedado no hotel. Ainda estou conhecendo a equipe.'
+        },
+        {
+          personagem: 'Thomas',
+          texto: 'Então prazer, sou Thomas. Trabalho como garçom e fico entre o salão e o bar durante os eventos. É um serviço corrido, mas gosto do movimento. A gente aprende a reconhecer os hóspedes, lembrar os pedidos e perceber quando alguém precisa de ajuda antes mesmo de chamar.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Você parece conhecer bem a rotina daqui. Deve cruzar com praticamente todo mundo durante o expediente.'
+        },
+        {
+          personagem: 'Thomas',
+          texto: 'Com quase todos, sim. Quando se trabalha servindo as mesas, é difícil passar despercebido, embora os hóspedes raramente se lembrem do nosso nome. Não digo isso como reclamação. Só significa que acabamos vendo muita coisa enquanto as pessoas estão ocupadas conversando entre si.'
+        }
+      ]
     }
   ],
 
   'corredor-servico': [
     {
-      personagem: 'Donna',
-      texto: 'Danni, você viu onde deixaram os panos limpos? Eu procurei no armário do térreo e só encontrei os que ainda precisam ser lavados. Se alguém derrubar alguma coisa no salão, vamos ficar em apuros.'
+      id: 'donna',
+      rotulo: 'Conversar com Donna',
+      falas: [
+        {
+          personagem: 'Donna',
+          texto: 'Oh! Desculpe, pensei que fosse alguém da equipe. Este corredor não costuma receber hóspedes. Está procurando alguma coisa ou se perdeu tentando encontrar outro ambiente?'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Nenhuma das duas coisas. Sou o investigador que chegou hoje. Estou conhecendo as dependências do hotel, inclusive as áreas de serviço.'
+        },
+        {
+          personagem: 'Donna',
+          texto: 'Entendo. Meu nome é Donna, trabalho na equipe de limpeza e cuido para que os quartos e os espaços comuns estejam em ordem. Não é a parte mais visível do hotel, mas garanto que dá bastante trabalho manter tudo funcionando, especialmente em noites movimentadas.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Imagino. É um hotel grande, e cada ambiente parece depender de muitas pessoas.'
+        },
+        {
+          personagem: 'Donna',
+          texto: 'É exatamente isso. Às vezes, os hóspedes pensam que tudo simplesmente aparece limpo e organizado pela manhã. Mas há uma equipe inteira trabalhando enquanto eles descansam. Se precisar passar por aqui, não há problema; só peço que tenha cuidado com os materiais e não bloqueie a passagem.'
+        }
+      ]
     },
     {
-      personagem: 'Danni',
-      texto: 'Estão na prateleira de cima, atrás das caixas de material. Eu ia levar tudo para a sala dos funcionários, mas me chamaram para ajudar na recepção. Parece que ninguém consegue decidir o que é mais urgente.'
-    },
-    {
-      personagem: 'Donna',
-      texto: 'Isso acontece quando a casa está cheia. Todo mundo corre de um lado para o outro e, no fim, sobra para quem está tentando manter as coisas em ordem. Mas não quero que você se desgaste por causa disso.'
-    },
-    {
-      personagem: 'Danni',
-      texto: 'Eu estou bem, Donna. Só queria que as pessoas percebessem que também temos limites. Os hóspedes veem as luzes acesas, a música e os quartos arrumados, mas quase nunca pensam em quem faz tudo isso acontecer.'
-    },
-    {
-      personagem: 'Donna',
-      texto: 'Eu sei. Ainda assim, gosto de pensar que o nosso trabalho aparece nos pequenos detalhes. Talvez ninguém repare quando tudo está certo, mas basta uma coisa sair do lugar para todos se lembrarem de nós.'
+      id: 'danni',
+      rotulo: 'Conversar com Danni',
+      falas: [
+        {
+          personagem: 'Danni',
+          texto: 'Você é o novo hóspede, não é? Vi a Jaqueline falando com alguém na recepção, mas não sabia que viria conhecer até o corredor de serviço. Normalmente, as pessoas ficam só nos lugares mais bonitos do hotel.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Gosto de conhecer o lugar por inteiro. E você, trabalha aqui há muito tempo?'
+        },
+        {
+          personagem: 'Danni',
+          texto: 'Meu nome é Danni. Trabalho ajudando a equipe com as tarefas do hotel, principalmente quando há eventos. Hoje está tudo um pouco mais corrido por causa da apresentação. Quando parece que finalmente terminei uma coisa, alguém aparece precisando de ajuda em outra.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Deve ser difícil manter uma rotina quando as prioridades mudam o tempo todo.'
+        },
+        {
+          personagem: 'Danni',
+          texto: 'É, mas a gente acaba se acostumando. O pessoal daqui tem seu jeito e, quando todos colaboram, as coisas funcionam. Só não conte para a Donna que eu disse isso enquanto estava parada conversando; ela vai lembrar que ainda tenho algumas tarefas para terminar.'
+        }
+      ]
     }
   ],
 
   cozinha: [
     {
-      personagem: 'Snevak',
-      texto: 'Thomas, se veio buscar alguma coisa, diga logo o que é. Tenho três panelas no fogo, uma encomenda atrasada e uma equipe que parece ter esquecido que a cozinha não é lugar para passear.'
-    },
-    {
-      personagem: 'Thomas',
-      texto: 'Vim buscar a bandeja que pediram para o salão. Não precisa me olhar como se eu tivesse vindo provar a comida sem autorização. Eu sei que você leva seu trabalho a sério.'
-    },
-    {
-      personagem: 'Snevak',
-      texto: 'Levar a sério é o mínimo. Uma refeição ruim pode arruinar a impressão de uma noite inteira. E, ao contrário do que alguns pensam, não basta colocar comida em um prato e esperar que os hóspedes agradeçam.'
-    },
-    {
-      personagem: 'Thomas',
-      texto: 'Eu não discordo. Só acho que você poderia explicar as coisas sem fazer todo mundo sentir que está prestes a receber uma bronca. Até a comida parece ficar nervosa quando você está por perto.'
-    },
-    {
-      personagem: 'Snevak',
-      texto: 'Muito engraçado. Leve a bandeja antes que esfrie e, por favor, volte com ela inteira. Não estou disposto a preparar tudo outra vez porque alguém resolveu correr pelos corredores.'
+      id: 'snevak',
+      rotulo: 'Conversar com Snevak',
+      falas: [
+        {
+          personagem: 'Snevak',
+          texto: 'A cozinha está em horário de serviço. Se veio procurar alguém, peço que não fique no caminho dos funcionários. Tenho pedidos para o salão e não posso me dar ao luxo de perder tempo porque alguém resolveu fazer uma visita justamente agora.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Compreendo. Sou o investigador que chegou hoje. Só gostaria de me apresentar e saber quem está responsável pela cozinha.'
+        },
+        {
+          personagem: 'Snevak',
+          texto: 'Snevak. Sou o chefe de cozinha. Cuido do cardápio, da equipe e de tudo o que sai daqui para os hóspedes. Uma cozinha precisa de disciplina; se cada pessoa decidir fazer as coisas à própria maneira, o resultado aparece no prato.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Parece que não é um trabalho simples, especialmente com o hotel cheio.'
+        },
+        {
+          personagem: 'Snevak',
+          texto: 'Não é mesmo. Mas não escolhi esta profissão esperando facilidade. Gosto de saber que o trabalho foi bem feito. Agora, se não se importar, preciso voltar às minhas panelas. A apresentação não vai esperar a cozinha terminar de conversar.'
+        }
+      ]
     }
   ],
 
   'sala-funcionarios': [
     {
-      personagem: 'Donna',
-      texto: 'Você vai fazer uma pausa, Matteo? Está andando de um lado para o outro desde o começo da tarde. Se continuar assim, vai chegar ao fim da noite mais cansado do que todos nós juntos.'
-    },
-    {
-      personagem: 'Matteo',
-      texto: 'Uma pausa agora só vai me deixar pensando em tudo o que ainda precisa ser feito. Prefiro conferir os horários, verificar os quartos e garantir que ninguém fique sem atendimento. É mais fácil prevenir problemas do que resolvê-los depois.'
-    },
-    {
-      personagem: 'Donna',
-      texto: 'Eu entendo, mas não dá para controlar cada detalhe de uma casa deste tamanho. Às vezes, alguma coisa sai diferente do planejado e precisamos lidar com isso sem transformar o mundo inteiro em uma emergência.'
-    },
-    {
-      personagem: 'Matteo',
-      texto: 'Talvez você tenha razão. É só que, quando alguma coisa dá errado, todos olham para mim esperando uma resposta. Não é uma posição tão confortável quanto parece.'
-    },
-    {
-      personagem: 'Donna',
-      texto: 'Ninguém espera que você seja perfeito. Só esperam que se lembre de que trabalha com pessoas, não com relógios e listas. Isso também faz parte de manter um hotel funcionando.'
+      id: 'matteo',
+      rotulo: 'Conversar com Matteo',
+      falas: [
+        {
+          personagem: 'Matteo',
+          texto: 'Boa noite. Esta é a sala dos funcionários, mas não há problema em entrar por alguns instantes. Posso ajudá-lo com alguma coisa?'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Sou o investigador que chegou hoje. Estou conhecendo o hotel e as pessoas que trabalham aqui. Você parece estar organizando alguns registros.'
+        },
+        {
+          personagem: 'Matteo',
+          texto: 'Matteo. Sou responsável pela equipe de funcionários e pela organização do serviço. Confiro escalas, distribuo tarefas e tento garantir que cada setor saiba o que precisa fazer. Em noites de evento, isso exige um pouco mais de atenção.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Imagino que coordenar tantas pessoas não seja fácil. Todos parecem ter funções bastante diferentes.'
+        },
+        {
+          personagem: 'Matteo',
+          texto: 'E têm. O hotel depende de cada setor, desde a recepção até a cozinha. Meu trabalho é fazer com que todos consigam cumprir suas responsabilidades sem que uma tarefa atrapalhe a outra. Se precisar de alguma informação sobre a equipe, pode me procurar quando eu não estiver ocupado.'
+        }
+      ]
     }
   ],
 
   jardim: [
     {
-      personagem: 'Jassir',
-      texto: 'Não recomendo ficar muito tempo aqui fora. A chuva está encharcando o caminho e, com pouca luz, é fácil não perceber onde termina a pedra e começa a grama.'
-    },
-    {
-      personagem: 'Margaret',
-      texto: 'Eu precisava de um pouco de ar. Lá dentro está tudo tão cheio, tão barulhento... Às vezes, antes de cantar, gosto de ficar alguns minutos em silêncio. Ajuda a organizar os pensamentos.'
-    },
-    {
-      personagem: 'Jassir',
-      texto: 'O jardim costuma ser silencioso, pelo menos quando o tempo permite. Passei boa parte do dia cuidando das plantas e agora parece que a tempestade pretende desfazer todo o trabalho.'
-    },
-    {
-      personagem: 'Margaret',
-      texto: 'Talvez amanhã você encontre tudo no lugar outra vez. As coisas resistem mais do que imaginamos, mesmo quando parecem frágeis. Acho que isso vale para as pessoas também.'
-    },
-    {
-      personagem: 'Jassir',
-      texto: 'Pode ser. Mas as plantas não escondem quando precisam de cuidado. Com gente, às vezes, é difícil saber se devemos nos aproximar ou simplesmente deixar que encontrem o próprio caminho.'
-    }
-  ],
-
-  'corredor-superior': [
-    {
-      personagem: 'Jaqueline',
-      texto: 'O corredor está mais quieto agora. A maioria dos hóspedes já se acomodou, mas ainda há algumas solicitações pendentes na recepção. Espero que a equipe consiga terminar tudo antes do início da apresentação.'
-    },
-    {
-      personagem: 'Matteo',
-      texto: 'Não se preocupe com o que não depende de você. A recepção está sob seus cuidados e sei que consegue lidar com os pedidos. Se surgir alguma situação fora do comum, me procure antes de tomar uma decisão sozinha.'
-    },
-    {
-      personagem: 'Jaqueline',
-      texto: 'Eu agradeço a confiança, mas às vezes parece que qualquer decisão pode ser interpretada como errada por alguém. Um hóspede reclama, outro exige tratamento especial, e nós precisamos sorrir como se nada estivesse acontecendo.'
-    },
-    {
-      personagem: 'Matteo',
-      texto: 'Esse é o trabalho que escolhemos fazer, embora isso não signifique que seja simples. Tente não levar cada reclamação para o lado pessoal. Amanhã, com a cabeça mais tranquila, tudo vai parecer menos complicado.'
-    },
-    {
-      personagem: 'Jaqueline',
-      texto: 'Espero que sim. Por enquanto, vou voltar à recepção. Ainda tenho alguns registros para conferir antes que a noite termine.'
-    }
-  ],
-
-  'quarto-investigacao': [
-    {
-      personagem: 'NARRAÇÃO',
-      texto: 'O quarto permanece reservado e silencioso. Por enquanto, não há ninguém aqui. O som da chuva chega abafado através das janelas, enquanto o restante do hotel continua seguindo sua rotina.'
+      id: 'jassir',
+      rotulo: 'Conversar com Jassir',
+      falas: [
+        {
+          personagem: 'Jassir',
+          texto: 'Cuidado com o caminho, senhor. A chuva deixou as pedras escorregadias e algumas partes do jardim estão bastante escuras. Não gostaria que alguém se machucasse por aqui.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'Obrigado pelo aviso. Sou o investigador que chegou hoje. Você é responsável pelo jardim?'
+        },
+        {
+          personagem: 'Jassir',
+          texto: 'Sim. Meu nome é Jassir, cuido das plantas e da área externa do Belladonna. Gosto deste trabalho porque o jardim muda com as estações. É preciso observar bastante; às vezes, uma folha diferente já indica que alguma coisa não está bem.'
+        },
+        {
+          personagem: 'Investigador',
+          texto: 'É uma maneira interessante de olhar para as coisas. Imagino que a tempestade complique seu trabalho.'
+        },
+        {
+          personagem: 'Jassir',
+          texto: 'Complica, mas faz parte. Depois da chuva, sempre há algo para recolher ou consertar. Ainda assim, prefiro cuidar daqui a ficar preso dentro de casa o dia inteiro. O jardim é um dos poucos lugares do hotel onde consigo ouvir meus próprios pensamentos.'
+        }
+      ]
     }
   ]
 };
