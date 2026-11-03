@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171719">
+  <meta name="description" content="O Mistério do Hotel — uma visual novel investigativa.">
+  <title>O Mistério do Hotel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <main id="app">
+    <section class="menu-screen" id="menu-screen" aria-label="Menu principal">
+      <div class="menu-shade"></div>
+      <div class="menu-content">
+        <p class="eyebrow">Uma visual novel investigativa</p>
+        <h1>O Mistério<br><span>do Hotel</span></h1>
+        <p class="hotel-name">HOTEL BELLADONNA</p>
+        <button class="enter-button" id="enter-button" type="button">ENTRAR</button>
+        <p class="menu-note">Uma noite. Muitos segredos.</p>
+      </div>
+      <span class="version">VERSÃO DE DESENVOLVIMENTO</span>
+    </section>
+
+    <section class="game-screen is-hidden" id="game-screen" aria-label="Jogo">
+      <header class="game-header">
+        <span class="header-mark">HB</span>
+        <div>
+          <p class="header-kicker">HOTEL BELLADONNA</p>
+          <h2 id="location-name">Recepção</h2>
+        </div>
+        <button class="text-button" id="back-menu" type="button">MENU</button>
+      </header>
+
+      <section class="scene" id="scene" aria-label="Cenário atual">
+        <div class="scene-overlay"></div>
+        <p class="scene-placeholder" id="scene-placeholder">CENÁRIO A SER INSERIDO</p>
+        <img class="character-sprite is-hidden" id="character-sprite" alt="">
+      </section>
+
+      <section class="dialogue-area" aria-live="polite">
+        <div class="dialogue-card">
+          <p class="speaker-name" id="speaker-name">NARRAÇÃO</p>
+          <p class="dialogue-text" id="dialogue-text">A estrutura do jogo está pronta para receber a história.</p>
+          <div class="dialogue-footer">
+            <span class="dialogue-hint">OS ACONTECIMENTOS SERÃO DEFINIDOS NO PLANEJAMENTO</span>
+            <button class="next-button" id="next-dialogue" type="button" disabled>CONTINUAR <span>→</span></button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
