@@ -426,6 +426,10 @@ function encerrarDialogo() {
   dialogoAtual = [];
   indiceDialogo = 0;
   chaveConversaAtual = null;
+  elementos.nomeFalante.textContent = '';
+  elementos.texto.textContent = '';
+  elementos.personagem.classList.add('is-hidden');
+  elementos.personagem.removeAttribute('src');
   elementos.continuar.disabled = true;
 }
 
