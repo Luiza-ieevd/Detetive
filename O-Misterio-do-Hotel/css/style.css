@@ -598,3 +598,56 @@ button:focus-visible {
 .menu-content {
   margin-left: 0;
 }
+
+
+/* Objetivos e interações opcionais com personagens */
+.scene-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 13px;
+}
+
+.action-button {
+  padding: 9px 13px;
+  border: 1px solid rgba(177, 138, 82, .48);
+  background: rgba(64, 29, 41, .28);
+  color: var(--beige);
+  font-size: .58rem;
+  letter-spacing: .08em;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.action-button:hover,
+.action-button:focus-visible {
+  border-color: var(--gold);
+  background: rgba(177, 138, 82, .16);
+  color: #f0dfc3;
+  outline: none;
+}
+
+.action-button-primary {
+  border-color: var(--gold);
+  background: rgba(177, 138, 82, .16);
+  color: #f0dfc3;
+}
+
+.action-note {
+  align-self: center;
+  color: var(--gold);
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+#objective-text {
+  color: var(--gold);
+  opacity: .9;
+  letter-spacing: .14em;
+}
+
+@media (max-width: 650px) {
+  .scene-actions { gap: 6px; margin-bottom: 10px; }
+  .action-button { padding: 8px 10px; font-size: .52rem; }
+}
