@@ -7,7 +7,7 @@
   <meta name="description" content="O Mistério do Hotel — uma visual novel investigativa.">
   <title>O Mistério do Hotel</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <main id="app">
@@ -39,12 +39,14 @@
         <img class="character-sprite is-hidden" id="character-sprite" alt="">
       </section>
 
+      <nav class="scene-navigation" id="scene-navigation" aria-label="Locais disponíveis"></nav>
+
       <section class="dialogue-area" aria-live="polite">
         <div class="dialogue-card">
           <p class="speaker-name" id="speaker-name">NARRAÇÃO</p>
-          <p class="dialogue-text" id="dialogue-text">A estrutura do jogo está pronta para receber a história.</p>
+          <p class="dialogue-text" id="dialogue-text">Explore os ambientes do hotel. A história será adicionada depois.</p>
           <div class="dialogue-footer">
-            <span class="dialogue-hint">OS ACONTECIMENTOS SERÃO DEFINIDOS NO PLANEJAMENTO</span>
+            <span class="dialogue-hint">EXPLORE OS LOCAIS DISPONÍVEIS</span>
             <button class="next-button" id="next-dialogue" type="button" disabled>CONTINUAR <span>→</span></button>
           </div>
         </div>

@@ -459,3 +459,47 @@ button:focus-visible {
     margin-top: 8px;
   }
 }
+
+
+/* Navegação entre os ambientes */
+.scene-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px clamp(12px, 4vw, 52px);
+  border-top: 1px solid rgba(177, 138, 82, .18);
+  border-bottom: 1px solid rgba(177, 138, 82, .18);
+  background: #151517;
+}
+
+.location-button {
+  padding: 9px 13px;
+  border: 1px solid rgba(177, 138, 82, .35);
+  background: rgba(64, 29, 41, .2);
+  color: var(--beige);
+  font-size: .58rem;
+  letter-spacing: .08em;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.location-button:hover,
+.location-button:focus-visible {
+  border-color: var(--gold);
+  background: rgba(177, 138, 82, .15);
+  color: #f0dfc3;
+  outline: none;
+}
+
+@media (max-width: 650px) {
+  .scene-navigation {
+    gap: 6px;
+    padding: 9px 10px;
+  }
+
+  .location-button {
+    padding: 8px 10px;
+    font-size: .52rem;
+  }
+}
