@@ -20,7 +20,8 @@ const elementos = {
   continuar: document.querySelector('#next-dialogue'),
   navegacao: document.querySelector('#scene-navigation'),
   objetivo: document.querySelector('#objective-text'),
-  acoes: document.querySelector('#scene-actions')
+  acoes: document.querySelector('#scene-actions'),
+  cartaoDialogo: document.querySelector('.dialogue-card')
 };
 
 const cenarios = {
@@ -236,6 +237,7 @@ function dormir() {
   if (cenaAtual !== 'quarto-investigacao' || noiteEncerrada) return;
   noiteEncerrada = true;
   elementos.acoes.replaceChildren();
+  elementos.cartaoDialogo.classList.remove('is-empty');
   elementos.nomeFalante.textContent = 'NARRAÇÃO';
   elementos.texto.textContent = 'O investigador apaga a luz e se deita. O cansaço vence pouco a pouco, enquanto a chuva continua a bater nas vidraças. Algumas horas depois, vozes e passos apressados no corredor interrompem o silêncio.';
   elementos.continuar.disabled = true;
@@ -354,6 +356,7 @@ function desenharAcoesDaCena(idCena) {
 }
 
 function mostrarNarracao(texto) {
+  elementos.cartaoDialogo.classList.remove('is-empty');
   elementos.nomeFalante.textContent = 'NARRAÇÃO';
   elementos.texto.textContent = texto;
   elementos.continuar.disabled = true;
@@ -363,6 +366,7 @@ function iniciarDialogo(idCena, idConversa) {
   const conversas = obterDialogosDaCena(dialogos, idCena);
   const conversa = conversas.find(item => item.id === idConversa);
   if (!conversa || !Array.isArray(conversa.falas) || !conversa.falas.length) return;
+  elementos.cartaoDialogo.classList.remove('is-empty');
   dialogoAtual = conversa.falas;
   indiceDialogo = 0;
   chaveConversaAtual = `${idCena}:${idConversa}`;
@@ -387,6 +391,7 @@ function avancarDialogo() {
 function exibirFala() {
   const fala = dialogoAtual[indiceDialogo];
   if (!fala) return;
+  elementos.cartaoDialogo.classList.remove('is-empty');
   elementos.nomeFalante.textContent = fala.personagem || 'NARRAÇÃO';
   elementos.texto.textContent = fala.texto || '';
   elementos.continuar.disabled = false;
@@ -426,6 +431,7 @@ function encerrarDialogo() {
   dialogoAtual = [];
   indiceDialogo = 0;
   chaveConversaAtual = null;
+  elementos.cartaoDialogo.classList.add('is-empty');
   elementos.nomeFalante.textContent = '';
   elementos.texto.textContent = '';
   elementos.personagem.classList.add('is-hidden');
