@@ -26,61 +26,61 @@ const elementos = {
 const cenarios = {
   recepcao: {
     nome: 'Recepção',
-    imagem: '../assets/cenarios/terreo/recepcao.png',
+    imagem: 'assets/cenarios/terreo/recepcao.png',
     descricao: 'Saguão principal do Hotel Belladonna.',
     acessos: ['elevador', 'salao', 'jardim', 'corredor-servico']
   },
   elevador: {
     nome: 'Elevador — térreo',
-    imagem: '../assets/cenarios/terreo/elevador-terreo.png',
+    imagem: 'assets/cenarios/terreo/elevador-terreo.png',
     descricao: 'O elevador antigo conecta os andares do hotel.',
     acessos: ['recepcao', 'corredor-superior']
   },
   salao: {
     nome: 'Salão de baile',
-    imagem: '../assets/cenarios/terreo/salao-baile.png',
+    imagem: 'assets/cenarios/terreo/salao-baile.png',
     descricao: 'O salão preparado para a apresentação musical.',
     acessos: ['recepcao', 'bar']
   },
   bar: {
     nome: 'Bar',
-    imagem: '../assets/cenarios/terreo/bar.png',
+    imagem: 'assets/cenarios/terreo/bar.png',
     descricao: 'O bar do salão.',
     acessos: ['salao']
   },
   'corredor-servico': {
     nome: 'Corredor de serviço',
-    imagem: '../assets/cenarios/funcionarios/corredor-servico.png',
+    imagem: 'assets/cenarios/funcionarios/corredor-servico.png',
     descricao: 'Uma passagem reservada aos funcionários.',
     acessos: ['recepcao', 'cozinha', 'sala-funcionarios']
   },
   cozinha: {
     nome: 'Cozinha',
-    imagem: '../assets/cenarios/funcionarios/cozinha.png',
+    imagem: 'assets/cenarios/funcionarios/cozinha.png',
     descricao: 'A cozinha do hotel.',
     acessos: ['corredor-servico']
   },
   'sala-funcionarios': {
     nome: 'Sala dos funcionários',
-    imagem: '../assets/cenarios/funcionarios/sala-funcionarios.png',
+    imagem: 'assets/cenarios/funcionarios/sala-funcionarios.png',
     descricao: 'O espaço de descanso da equipe.',
     acessos: ['corredor-servico']
   },
   jardim: {
     nome: 'Jardim',
-    imagem: '../assets/cenarios/exterior/jardim.png',
+    imagem: 'assets/cenarios/exterior/jardim.png',
     descricao: 'O jardim do hotel, sob a chuva.',
     acessos: ['recepcao']
   },
   'corredor-superior': {
     nome: 'Corredor do andar superior',
-    imagem: '../assets/cenarios/andar-superior/corredor.png',
+    imagem: 'assets/cenarios/andar-superior/corredor.png',
     descricao: 'O corredor dos quartos.',
     acessos: ['elevador', 'quarto-investigacao']
   },
   'quarto-investigacao': {
     nome: 'Quarto de investigação',
-    imagem: '../assets/cenarios/andar-superior/quarto-investigacao.png',
+    imagem: 'assets/cenarios/andar-superior/quarto-investigacao.png',
     descricao: 'Um quarto reservado para a investigação.',
     acessos: ['corredor-superior']
   }
@@ -97,17 +97,17 @@ const quadrosIntroducao = [
   {
     titulo: 'A cena do crime',
     kicker: 'UMA NOITE QUE TERMINOU EM TRAGÉDIA',
-    imagem: '../assets/cenarios/intro/cena-crime.png'
+    imagem: 'assets/cenarios/intro/cena-crime.png'
   },
   {
     titulo: 'A cantora de jazz',
     kicker: 'UMA VOZ ENTRE LÁGRIMAS',
-    imagem: '../assets/cenarios/intro/margaret-chorando.png'
+    imagem: 'assets/cenarios/intro/margaret-chorando.png'
   },
   {
     titulo: 'Os suspeitos',
     kicker: 'CADA SOMBRA ESCONDE UMA HISTÓRIA',
-    imagem: '../assets/cenarios/intro/silhuetas-suspeitos.png'
+    imagem: 'assets/cenarios/intro/silhuetas-suspeitos.png'
   }
 ];
 
@@ -197,7 +197,14 @@ function carregarCena(idCena) {
 
   desenharNavegacao(cena.acessos);
   encerrarDialogo();
-  mostrarNarracao(cena.descricao);
+
+  // Cada ambiente inicia sua conversa quando há falas cadastradas.
+  // Assim, os diálogos aparecem automaticamente ao entrar em uma cena.
+  if (obterDialogosDaCena(dialogos, idCena).length) {
+    iniciarDialogo(idCena);
+  } else {
+    mostrarNarracao(cena.descricao);
+  }
 }
 
 function desenharNavegacao(acessos) {
