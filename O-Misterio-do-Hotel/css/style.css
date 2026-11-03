@@ -651,3 +651,51 @@ button:focus-visible {
   .scene-actions { gap: 6px; margin-bottom: 10px; }
   .action-button { padding: 8px 10px; font-size: .52rem; }
 }
+
+/* Ajuste estrutural: o jogo possui quatro faixas (cabeçalho, cenário,
+   navegação e caixa de diálogo). */
+.game-screen {
+  grid-template-rows: auto minmax(180px, 1fr) auto auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-y: auto;
+}
+
+.scene-navigation {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.dialogue-area {
+  flex-shrink: 0;
+}
+
+.dialogue-card.is-empty .speaker-name,
+.dialogue-card.is-empty .dialogue-text,
+.dialogue-card.is-empty .next-button {
+  display: none;
+}
+
+.dialogue-card.is-empty .dialogue-footer {
+  margin-top: 0;
+}
+
+.dialogue-card.is-empty {
+  min-height: 48px;
+}
+
+@media (max-width: 650px) {
+  .game-screen {
+    grid-template-rows: auto minmax(150px, 1fr) auto auto;
+  }
+
+  .dialogue-area {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .dialogue-footer {
+    align-items: flex-end;
+  }
+}
