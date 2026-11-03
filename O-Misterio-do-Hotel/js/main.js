@@ -77,7 +77,7 @@ const cenarios = {
     nome: 'Elevador',
     imagem: 'assets/cenarios/terreo/elevador-terreo.png',
     descricao: 'O elevador antigo range discretamente quando as portas se abrem. Ele dá acesso ao andar superior do hotel.',
-    acessos: ['recepcao', 'corredor-superior'],
+    acessos: ['recepcao'],
     andar: 'transicao'
   },
   'corredor-superior': {
