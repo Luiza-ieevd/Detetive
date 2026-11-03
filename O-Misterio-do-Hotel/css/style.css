@@ -503,3 +503,87 @@ button:focus-visible {
     font-size: .52rem;
   }
 }
+
+
+/* Cinematic de abertura: três quadros antes da exploração */
+.cinematic-screen {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  overflow: hidden;
+  background: #09090b;
+  isolation: isolate;
+}
+.cinematic-image {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.035);
+  transition: opacity .75s ease, transform 4.3s ease;
+}
+.cinematic-screen.is-changing .cinematic-image {
+  transform: scale(1);
+}
+.cinematic-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8,8,10,.48), transparent 75%),
+    radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,.58) 100%);
+}
+.cinematic-caption {
+  position: absolute;
+  left: clamp(28px, 9vw, 130px);
+  bottom: clamp(105px, 17vh, 170px);
+  max-width: min(780px, 82vw);
+  animation: cinematic-caption-in 1s ease both;
+  text-shadow: 0 3px 22px #000;
+}
+.cinematic-kicker {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: .62rem;
+  letter-spacing: .28em;
+}
+.cinematic-caption h2 {
+  margin: 0;
+  color: var(--paper);
+  font: 500 clamp(2.8rem, 7vw, 6.4rem)/.95 'Cormorant Garamond', serif;
+}
+.cinematic-controls {
+  position: absolute;
+  right: clamp(24px, 5vw, 70px);
+  bottom: 35px;
+  left: clamp(24px, 5vw, 70px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-top: 1px solid rgba(177,138,82,.42);
+  color: rgba(210,194,165,.7);
+  font-size: .58rem;
+  letter-spacing: .2em;
+}
+.cinematic-skip {
+  padding: 10px 0 10px 15px;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  cursor: pointer;
+}
+.cinematic-skip:hover { color: var(--gold); }
+@keyframes cinematic-caption-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 650px) {
+  .cinematic-caption { bottom: 125px; }
+  .cinematic-kicker { font-size: .5rem; letter-spacing: .16em; }
+  .cinematic-controls { bottom: 20px; }
+  .cinematic-skip { font-size: .52rem; }
+}
