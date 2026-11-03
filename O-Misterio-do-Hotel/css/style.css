@@ -589,20 +589,12 @@ button:focus-visible {
 }
 
 
-/* Correção: centraliza o conteúdo do menu em qualquer largura */
+/* Correção: mantém o menu perfeitamente centralizado */
 .menu-screen {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.menu-content,
-@media (min-width: 1100px) {
-  .menu-content {
-    margin-left: 0;
-  }
-}
-@media (max-width: 1099px) {
-  .menu-content {
-    margin-left: 0;
-  }
+.menu-content {
+  margin-left: 0;
 }
