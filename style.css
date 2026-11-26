@@ -1410,3 +1410,166 @@ body {
     .menu-carimbo strong { font-size:18px; }
     .menu-rodape { font-size:6px; letter-spacing:1px; flex-wrap:wrap; }
 }
+
+
+/* =========================================================
+   CORRECOES DE LAYOUT — INTRODUCAO E AREA DE INVESTIGACAO
+   ========================================================= */
+
+/* Centraliza a janela "O CASO" no meio da tela. */
+#tela-introducao {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 4vw, 40px);
+    overflow-y: auto;
+}
+
+#tela-introducao.ativa {
+    display: flex;
+}
+
+#tela-introducao .janela {
+    width: min(680px, 100%);
+    max-height: calc(100vh - 48px);
+    margin: auto;
+}
+
+/* O cenário passa a ser a referência dos pontos clicáveis.
+   Isso impede que os marcadores "Investigar" escapem da área. */
+.area-jogo {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#cenario.cenario {
+    position: relative;
+    isolation: isolate;
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    background-color: #101319;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#cenario .objeto-clicavel {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 28px;
+    min-height: 28px;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    border-radius: 50%;
+    touch-action: manipulation;
+}
+
+/* O painel nunca deve empurrar o cenário para fora da tela. */
+.painel-investigacao {
+    position: relative;
+    z-index: 7;
+    width: clamp(230px, 25vw, 290px);
+    min-width: 0;
+    max-height: 100%;
+    flex: 0 0 clamp(230px, 25vw, 290px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Evita que a barra inferior ultrapasse a largura disponível. */
+.barra-controle {
+    width: 100%;
+    min-width: 0;
+    flex: 0 0 auto;
+}
+
+.botao-controle {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 8px 5px;
+}
+
+/* Telas menores: cenário em cima, painel abaixo e controles roláveis. */
+@media (max-width: 760px) {
+    html, body {
+        min-height: 100%;
+        height: auto;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    #tela-jogo.ativa {
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
+    }
+
+    .area-jogo {
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    #cenario.cenario {
+        flex: 0 0 auto;
+        width: 100%;
+        height: min(58vh, 520px);
+        min-height: 300px;
+    }
+
+    .painel-investigacao {
+        width: 100%;
+        flex: 0 0 auto;
+        max-height: none;
+        border-left: 0;
+        border-top: 1px solid #383e48;
+    }
+
+    .barra-controle {
+        position: sticky;
+        bottom: 0;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .botao-controle {
+        flex: 0 0 88px;
+    }
+
+    #tela-introducao {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    #tela-introducao .janela {
+        max-height: none;
+    }
+}
+
+@media (max-height: 620px) and (min-width: 761px) {
+    #tela-introducao {
+        align-items: flex-start;
+    }
+
+    #tela-introducao .janela {
+        margin: auto;
+        padding: 24px;
+    }
+
+    .cabecalho-jogo {
+        height: 54px;
+        flex: 0 0 54px;
+    }
+
+    .barra-controle {
+        min-height: 62px;
+    }
+}
