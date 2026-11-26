@@ -253,13 +253,12 @@ function dormir() {
   elementos.continuar.textContent = 'ACORDAR →';
   elementos.continuar.disabled = false;
   atualizarObjetivo();
-  const botao = document.createElement('button');
-  botao.type = 'button';
   // A próxima fala leva diretamente à sequência cinematográfica.
 }
 
 function voltarAoMenu() {
   window.clearTimeout(temporizadorCinematic);
+  elementos.overlayPausa.classList.add('is-hidden');
   elementos.cinematic.classList.add('is-hidden');
   elementos.jogo.classList.add('is-hidden');
   elementos.menu.classList.remove('is-hidden', 'is-leaving');
@@ -488,8 +487,8 @@ document.addEventListener('keydown', evento => {
     avancarCinematicCrime();
     return;
   }
-  if (evento.key === 'Enter' && !elementos.continuar.disabled &&
-      !elementos.jogo.classList.contains('is-hidden')) {
+  if (evento.key === 'Enter' && elementos.overlayPausa.classList.contains('is-hidden') &&
+      !elementos.continuar.disabled && !elementos.jogo.classList.contains('is-hidden')) {
     avancarDialogo();
   }
   if (evento.key === 'Escape' && !elementos.jogo.classList.contains('is-hidden')) {
