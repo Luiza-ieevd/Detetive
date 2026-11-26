@@ -263,7 +263,7 @@ function exibirQuadroCrime() {
     } else {
       finalizarCinematicCrime();
     }
-  }, 4300);
+  }, tipoCinematic === 'introducao' ? 6200 : 4300);
 }
 
 function avancarCinematicCrime() {
