@@ -17,7 +17,7 @@
         <p class="eyebrow">Uma visual novel investigativa</p>
         <h1>O Mistério<br><span>do Hotel</span></h1>
         <p class="hotel-name">HOTEL BELLADONNA</p>
-        <button class="enter-button" id="enter-button" type="button">ENTRAR</button>
+        <button class="enter-button" id="enter-button" type="button">JOGAR</button>
         <p class="menu-note">Uma noite. Muitos segredos.</p>
       </div>
       <span class="version">VERSÃO DE DESENVOLVIMENTO</span>
@@ -39,32 +39,58 @@
     <section class="game-screen is-hidden" id="game-screen" aria-label="Jogo">
       <header class="game-header">
         <span class="header-mark">HB</span>
-        <div>
+        <div class="header-location">
           <p class="header-kicker">HOTEL BELLADONNA</p>
           <h2 id="location-name">Recepção</h2>
         </div>
-        <button class="text-button" id="back-menu" type="button">MENU</button>
+        <span class="mode-label" id="mode-label">EXPLORAÇÃO</span>
+        <button class="pause-button" id="pause-button" type="button" aria-label="Pausar jogo"><span>Ⅱ</span> PAUSAR</button>
       </header>
 
       <section class="scene" id="scene" aria-label="Cenário atual">
         <div class="scene-overlay"></div>
-        <p class="scene-placeholder" id="scene-placeholder">CENÁRIO A SER INSERIDO</p>
+        <p class="scene-placeholder is-hidden" id="scene-placeholder"></p>
         <img class="character-sprite is-hidden" id="character-sprite" alt="">
+        <div class="scene-location-tag" id="scene-location-tag">RECEPÇÃO</div>
       </section>
 
-      <nav class="scene-navigation" id="scene-navigation" aria-label="Locais disponíveis"></nav>
+      <section class="exploration-panel" id="exploration-panel" aria-label="Ações disponíveis">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-eyebrow">VOCÊ ESTÁ NO</p>
+            <h3 id="panel-location-name">Recepção</h3>
+          </div>
+          <p class="panel-objective" id="objective-text">Conheça os ambientes do térreo</p>
+        </div>
+        <div class="scene-actions" id="scene-actions" aria-label="Personagens e ações"></div>
+        <div class="navigation-heading"><span>IR PARA</span><span class="navigation-line"></span></div>
+        <nav class="scene-navigation" id="scene-navigation" aria-label="Locais disponíveis"></nav>
+      </section>
 
-      <section class="dialogue-area" aria-live="polite">
+      <section class="dialogue-area is-hidden" id="dialogue-area" aria-live="polite">
         <div class="dialogue-card">
-          <div class="scene-actions" id="scene-actions" aria-label="Interações disponíveis"></div>
-          <p class="speaker-name" id="speaker-name">NARRAÇÃO</p>
-          <p class="dialogue-text" id="dialogue-text">O investigador acaba de chegar ao Hotel Belladonna. Conheça os ambientes do térreo e, se desejar, converse com as pessoas que encontrar.</p>
+          <div class="dialogue-topline">
+            <p class="speaker-name" id="speaker-name">NARRAÇÃO</p>
+            <button class="close-dialogue" id="close-dialogue" type="button">FECHAR CONVERSA <span>×</span></button>
+          </div>
+          <p class="dialogue-text" id="dialogue-text"></p>
           <div class="dialogue-footer">
-            <span class="dialogue-hint" id="objective-text">OBJETIVO: CONHEÇA OS AMBIENTES DO TÉRREO</span>
-            <button class="next-button" id="next-dialogue" type="button" disabled>CONTINUAR <span>→</span></button>
+            <span class="dialogue-hint">HOTEL BELLADONNA</span>
+            <button class="next-button" id="next-dialogue" type="button">PRÓXIMA FALA <span>→</span></button>
           </div>
         </div>
       </section>
+    </section>
+
+    <section class="pause-overlay is-hidden" id="pause-overlay" aria-label="Jogo pausado">
+      <div class="pause-card">
+        <p class="eyebrow">HOTEL BELLADONNA</p>
+        <h2>Jogo pausado</h2>
+        <p>Respire. A investigação espera.</p>
+        <button class="pause-resume" id="resume-button" type="button">CONTINUAR JOGANDO</button>
+        <button class="pause-menu-link" id="pause-menu-button" type="button">VOLTAR AO MENU</button>
+        <span class="pause-tip">ATALHO: ESC</span>
+      </div>
     </section>
   </main>
 </body>
