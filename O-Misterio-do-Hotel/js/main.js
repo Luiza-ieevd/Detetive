@@ -493,7 +493,8 @@ document.addEventListener('keydown', evento => {
   }
   if (evento.key === 'Escape' && !elementos.jogo.classList.contains('is-hidden')) {
     evento.preventDefault();
-    if (!elementos.areaDialogo.classList.contains('is-hidden')) fecharPainelDialogo();
+    if (!elementos.overlayPausa.classList.contains('is-hidden')) alternarPausa();
+    else if (!elementos.areaDialogo.classList.contains('is-hidden')) fecharPainelDialogo();
     else alternarPausa();
   }
 });
