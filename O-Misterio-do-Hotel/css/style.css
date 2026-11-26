@@ -967,3 +967,27 @@ button:focus-visible {
   .scene-actions { margin-bottom: 8px; }
   .action-button { min-height: 38px; padding: 8px 13px; }
 }
+
+
+/* Texto narrativo da cinematic de abertura */
+.cinematic-description {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: rgba(232,220,197,.88);
+  font: 400 clamp(1.05rem, 2vw, 1.42rem)/1.65 'Cormorant Garamond', serif;
+  text-shadow: 0 2px 14px #000;
+  animation: cinematic-caption-in .8s ease both;
+}
+.cinematic-image {
+  transition: opacity .75s ease, transform 5.2s ease, background-image .5s ease;
+}
+.cinematic-screen.is-changing .cinematic-image {
+  transform: scale(1.025);
+}
+@media (max-width: 650px) {
+  .cinematic-description {
+    margin-top: 15px;
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+}
