@@ -6,6 +6,7 @@ const elementos = {
   cinematic: document.querySelector('#cinematic-screen'),
   cinematicImagem: document.querySelector('#cinematic-image'),
   cinematicTitulo: document.querySelector('#cinematic-title'),
+  cinematicDescricao: document.querySelector('#cinematic-description'),
   cinematicKicker: document.querySelector('#cinematic-kicker'),
   cinematicProgresso: document.querySelector('#cinematic-progress'),
   cinematicPular: document.querySelector('#cinematic-skip'),
@@ -124,6 +125,33 @@ const locaisTerreo = [
   'jardim'
 ];
 
+const quadrosIntroducao = [
+  {
+    titulo: 'Uma região em alerta',
+    kicker: 'DEPARTAMENTO DE POLÍCIA — 23H17',
+    descricao: 'Uma nova notificação chega ao investigador: uma sequência de assassinatos foi registrada em diferentes pontos da região. Os casos ainda não têm uma ligação confirmada.',
+    fundo: 'radial-gradient(ellipse at 78% 22%, rgba(116,75,54,.38), transparent 28%), linear-gradient(115deg, #101116 0%, #25232a 48%, #111216 100%), repeating-linear-gradient(0deg, transparent 0 5px, rgba(0,0,0,.12) 6px)'
+  },
+  {
+    titulo: 'Um ponto em comum',
+    kicker: 'RELATÓRIO DE OCORRÊNCIAS',
+    descricao: 'Ao analisar os endereços no mapa, ele percebe um detalhe inquietante: os locais dos crimes cercam uma mesma área. No centro dela está o Hotel Belladonna.',
+    fundo: 'radial-gradient(circle at 52% 48%, rgba(177,138,82,.24) 0 2px, transparent 3px), radial-gradient(ellipse at 50% 50%, rgba(64,29,41,.8), transparent 56%), linear-gradient(135deg, #171719, #252027 55%, #101115)'
+  },
+  {
+    titulo: 'A decisão',
+    kicker: 'INVESTIGAÇÃO EM ANDAMENTO',
+    descricao: 'Para acompanhar a região de perto, o investigador decide se hospedar no hotel. De lá, poderá observar a movimentação e entender se existe uma conexão entre os casos.',
+    fundo: 'linear-gradient(90deg, rgba(8,9,12,.15), rgba(8,9,12,.82)), radial-gradient(ellipse at 72% 58%, rgba(83,97,106,.55), transparent 30%), linear-gradient(145deg, #22252b, #171719 60%, #0d0e11)'
+  },
+  {
+    titulo: 'Hotel Belladonna',
+    kicker: 'A CHEGADA — NOITE CHUVOSA',
+    descricao: 'A chuva cobre as ruas quando ele chega ao Belladonna. Por enquanto, os hóspedes seguem suas rotinas. O investigador entra sem saber o quanto aquela estadia mudará a investigação.',
+    fundo: 'linear-gradient(0deg, rgba(10,10,12,.72), rgba(10,10,12,.08) 65%), radial-gradient(ellipse at 70% 48%, rgba(177,138,82,.32), transparent 26%), linear-gradient(110deg, #101318, #343039 48%, #171719)'
+  }
+];
+
 const quadrosCrime = [
   {
     titulo: 'Uma noite interrompida',
@@ -148,6 +176,8 @@ let indiceDialogo = 0;
 let temporizadorAnimacao = null;
 let indiceCinematic = 0;
 let temporizadorCinematic = null;
+let quadrosCinematicAtuais = quadrosCrime;
+let tipoCinematic = 'crime';
 let locaisVisitados = new Set();
 let conversasConcluidas = new Set();
 let andarSuperiorLiberado = false;
@@ -158,8 +188,7 @@ function entrarNoHotel() {
   elementos.menu.classList.add('is-leaving');
   window.setTimeout(() => {
     elementos.menu.classList.add('is-hidden');
-    elementos.jogo.classList.remove('is-hidden');
-    iniciarPrimeiraNoite();
+    iniciarCinematicIntroducao();
   }, 850);
 }
 
@@ -189,14 +218,24 @@ function atualizarObjetivo(mensagem = '') {
   }
 }
 
+function iniciarCinematicIntroducao() {
+  quadrosCinematicAtuais = quadrosIntroducao;
+  tipoCinematic = 'introducao';
+  indiceCinematic = 0;
+  elementos.cinematic.classList.remove('is-hidden');
+  exibirQuadroCrime();
+}
+
 function iniciarCinematicCrime() {
+  quadrosCinematicAtuais = quadrosCrime;
+  tipoCinematic = 'crime';
   indiceCinematic = 0;
   elementos.cinematic.classList.remove('is-hidden');
   exibirQuadroCrime();
 }
 
 function exibirQuadroCrime() {
-  const quadro = quadrosCrime[indiceCinematic];
+  const quadro = quadrosCinematicAtuais[indiceCinematic];
   if (!quadro) {
     finalizarCinematicCrime();
     return;
@@ -205,17 +244,20 @@ function exibirQuadroCrime() {
   elementos.cinematic.classList.remove('is-changing');
   void elementos.cinematic.offsetWidth;
   elementos.cinematic.classList.add('is-changing');
-  elementos.cinematicImagem.style.backgroundImage =
+  elementos.cinematicImagem.style.backgroundImage = quadro.fundo ||
     `linear-gradient(0deg, rgba(10,10,12,.82), rgba(10,10,12,.08) 65%), url("${quadro.imagem}")`;
+  elementos.cinematicImagem.style.backgroundColor = '#101116';
+  elementos.cinematicDescricao.textContent = quadro.descricao || '';
+  elementos.cinematicDescricao.classList.toggle('is-hidden', !quadro.descricao);
   elementos.cinematicTitulo.textContent = quadro.titulo;
   elementos.cinematicKicker.textContent = quadro.kicker;
-  elementos.cinematicProgresso.textContent = `0${indiceCinematic + 1} / 03`;
+  elementos.cinematicProgresso.textContent = `0${indiceCinematic + 1} / 0${quadrosCinematicAtuais.length}`;
   elementos.cinematicPular.textContent =
-    indiceCinematic === quadrosCrime.length - 1 ? 'CONTINUAR →' : 'PRÓXIMO →';
+    indiceCinematic === quadrosCinematicAtuais.length - 1 ? 'CONTINUAR →' : 'PRÓXIMO →';
 
   window.clearTimeout(temporizadorCinematic);
   temporizadorCinematic = window.setTimeout(() => {
-    if (indiceCinematic < quadrosCrime.length - 1) {
+    if (indiceCinematic < quadrosCinematicAtuais.length - 1) {
       indiceCinematic += 1;
       exibirQuadroCrime();
     } else {
@@ -226,7 +268,7 @@ function exibirQuadroCrime() {
 
 function avancarCinematicCrime() {
   window.clearTimeout(temporizadorCinematic);
-  if (indiceCinematic < quadrosCrime.length - 1) {
+  if (indiceCinematic < quadrosCinematicAtuais.length - 1) {
     indiceCinematic += 1;
     exibirQuadroCrime();
   } else {
@@ -237,6 +279,11 @@ function avancarCinematicCrime() {
 function finalizarCinematicCrime() {
   window.clearTimeout(temporizadorCinematic);
   elementos.cinematic.classList.add('is-hidden');
+  if (tipoCinematic === 'introducao') {
+    elementos.jogo.classList.remove('is-hidden');
+    iniciarPrimeiraNoite();
+    return;
+  }
   elementos.jogo.classList.remove('is-hidden');
   crimeRevelado = true;
   carregarCena('quarto-camilo');
