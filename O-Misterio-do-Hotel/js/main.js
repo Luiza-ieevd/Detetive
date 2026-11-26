@@ -21,7 +21,17 @@ const elementos = {
   navegacao: document.querySelector('#scene-navigation'),
   objetivo: document.querySelector('#objective-text'),
   acoes: document.querySelector('#scene-actions'),
-  cartaoDialogo: document.querySelector('.dialogue-card')
+  cartaoDialogo: document.querySelector('.dialogue-card'),
+  areaDialogo: document.querySelector('#dialogue-area'),
+  painelExploracao: document.querySelector('#exploration-panel'),
+  nomePainel: document.querySelector('#panel-location-name'),
+  etiquetaCena: document.querySelector('#scene-location-tag'),
+  modo: document.querySelector('#mode-label'),
+  pausar: document.querySelector('#pause-button'),
+  overlayPausa: document.querySelector('#pause-overlay'),
+  continuarPausa: document.querySelector('#resume-button'),
+  menuPausa: document.querySelector('#pause-menu-button'),
+  fecharDialogo: document.querySelector('#close-dialogue')
 };
 
 const cenarios = {
@@ -237,17 +247,15 @@ function dormir() {
   if (cenaAtual !== 'quarto-investigacao' || noiteEncerrada) return;
   noiteEncerrada = true;
   elementos.acoes.replaceChildren();
-  elementos.cartaoDialogo.classList.remove('is-empty');
+  abrirPainelDialogo();
   elementos.nomeFalante.textContent = 'NARRAÇÃO';
   elementos.texto.textContent = 'O investigador apaga a luz e se deita. O cansaço vence pouco a pouco, enquanto a chuva continua a bater nas vidraças. Algumas horas depois, vozes e passos apressados no corredor interrompem o silêncio.';
-  elementos.continuar.disabled = true;
+  elementos.continuar.textContent = 'ACORDAR →';
+  elementos.continuar.disabled = false;
   atualizarObjetivo();
   const botao = document.createElement('button');
   botao.type = 'button';
-  botao.className = 'action-button';
-  botao.textContent = 'ACORDAR E VER O QUE ACONTECEU →';
-  botao.addEventListener('click', iniciarCinematicCrime);
-  elementos.acoes.appendChild(botao);
+  // A próxima fala leva diretamente à sequência cinematográfica.
 }
 
 function voltarAoMenu() {
@@ -267,7 +275,9 @@ function carregarCena(idCena) {
 
   cenaAtual = idCena;
   elementos.nomeLocal.textContent = cena.nome;
-  elementos.placeholder.textContent = cena.descricao;
+  elementos.nomePainel.textContent = cena.nome;
+  elementos.etiquetaCena.textContent = cena.nome.toLocaleUpperCase('pt-BR');
+  elementos.placeholder.textContent = '';
   elementos.personagem.classList.add('is-hidden');
   elementos.personagem.removeAttribute('src');
   elementos.cena.style.backgroundImage =
@@ -286,7 +296,7 @@ function carregarCena(idCena) {
 
   desenharNavegacao(cena.acessos);
   desenharAcoesDaCena(idCena);
-  mostrarNarracao(cena.descricao);
+  fecharPainelDialogo();
 }
 
 function desenharNavegacao(acessos) {
@@ -355,8 +365,27 @@ function desenharAcoesDaCena(idCena) {
   }
 }
 
+function abrirPainelDialogo() {
+  elementos.painelExploracao.classList.add('is-hidden');
+  elementos.areaDialogo.classList.remove('is-hidden');
+  elementos.modo.textContent = 'DIÁLOGO';
+}
+
+function fecharPainelDialogo() {
+  encerrarDialogo();
+}
+
+function alternarPausa() {
+  if (elementos.jogo.classList.contains('is-hidden')) return;
+  const pausado = !elementos.overlayPausa.classList.contains('is-hidden');
+  elementos.overlayPausa.classList.toggle('is-hidden', pausado);
+  elementos.pausar.setAttribute('aria-label', pausado ? 'Pausar jogo' : 'Retomar jogo');
+  if (!pausado) elementos.overlayPausa.querySelector('button')?.focus();
+}
+
 function mostrarNarracao(texto) {
   elementos.cartaoDialogo.classList.remove('is-empty');
+  abrirPainelDialogo();
   elementos.nomeFalante.textContent = 'NARRAÇÃO';
   elementos.texto.textContent = texto;
   elementos.continuar.disabled = true;
@@ -366,7 +395,7 @@ function iniciarDialogo(idCena, idConversa) {
   const conversas = obterDialogosDaCena(dialogos, idCena);
   const conversa = conversas.find(item => item.id === idConversa);
   if (!conversa || !Array.isArray(conversa.falas) || !conversa.falas.length) return;
-  elementos.cartaoDialogo.classList.remove('is-empty');
+  abrirPainelDialogo();
   dialogoAtual = conversa.falas;
   indiceDialogo = 0;
   chaveConversaAtual = `${idCena}:${idConversa}`;
@@ -391,7 +420,7 @@ function avancarDialogo() {
 function exibirFala() {
   const fala = dialogoAtual[indiceDialogo];
   if (!fala) return;
-  elementos.cartaoDialogo.classList.remove('is-empty');
+  abrirPainelDialogo();
   elementos.nomeFalante.textContent = fala.personagem || 'NARRAÇÃO';
   elementos.texto.textContent = fala.texto || '';
   elementos.continuar.disabled = false;
@@ -431,7 +460,10 @@ function encerrarDialogo() {
   dialogoAtual = [];
   indiceDialogo = 0;
   chaveConversaAtual = null;
-  elementos.cartaoDialogo.classList.add('is-empty');
+  elementos.areaDialogo.classList.add('is-hidden');
+  elementos.painelExploracao.classList.remove('is-hidden');
+  elementos.modo.textContent = 'EXPLORAÇÃO';
+  elementos.continuar.textContent = 'PRÓXIMA FALA →';
   elementos.nomeFalante.textContent = '';
   elementos.texto.textContent = '';
   elementos.personagem.classList.add('is-hidden');
@@ -442,7 +474,14 @@ function encerrarDialogo() {
 elementos.entrar.addEventListener('click', entrarNoHotel);
 elementos.cinematicPular.addEventListener('click', avancarCinematicCrime);
 elementos.voltarMenu.addEventListener('click', voltarAoMenu);
-elementos.continuar.addEventListener('click', avancarDialogo);
+elementos.continuar.addEventListener('click', () => {
+  if (noiteEncerrada && cenaAtual === 'quarto-investigacao') { iniciarCinematicCrime(); return; }
+  avancarDialogo();
+});
+elementos.fecharDialogo.addEventListener('click', fecharPainelDialogo);
+elementos.pausar.addEventListener('click', alternarPausa);
+elementos.continuarPausa.addEventListener('click', alternarPausa);
+elementos.menuPausa.addEventListener('click', voltarAoMenu);
 
 document.addEventListener('keydown', evento => {
   if (evento.key === 'Enter' && !elementos.cinematic.classList.contains('is-hidden')) {
@@ -452,6 +491,11 @@ document.addEventListener('keydown', evento => {
   if (evento.key === 'Enter' && !elementos.continuar.disabled &&
       !elementos.jogo.classList.contains('is-hidden')) {
     avancarDialogo();
+  }
+  if (evento.key === 'Escape' && !elementos.jogo.classList.contains('is-hidden')) {
+    evento.preventDefault();
+    if (!elementos.areaDialogo.classList.contains('is-hidden')) fecharPainelDialogo();
+    else alternarPausa();
   }
 });
 
